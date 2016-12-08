@@ -1,0 +1,16 @@
+{'code': 0,
+ 'data': {'ShippingSetting': {'country_settings': [
+    {'CountryShippingSetting': {'country_code': 'AU',
+      'shipping_price': '1.00',
+      'use_product_shipping': 'False'}},
+    {'CountryShippingSetting': {'country_code': 'CA',
+      'shipping_price': '2.00',
+      'use_product_shipping': 'False'}},
+    {'CountryShippingSetting': {'country_code': 'GB',
+      'shipping_price': '3.00',
+      'use_product_shipping': 'False'}},
+    {'CountryShippingSetting': {'country_code': 'US',
+      'shipping_price': 'Use Product Shipping Price',
+      'use_product_shipping': 'True'}}],
+   'ships_worldwide': 'False'}},
+ 'message': ''}

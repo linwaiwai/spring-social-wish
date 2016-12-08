@@ -25,7 +25,7 @@ import org.springframework.social.connect.ConnectionValues;
 import org.springframework.social.connect.UserProfile;
 import org.springframework.social.facebook.api.Facebook;
 import org.springframework.social.facebook.api.User;
-import org.springframework.social.facebook.api.UserOperations;
+//import org.springframework.social.facebook.api.UserOperations;
 
 public class FacebookAdapterTest {
 

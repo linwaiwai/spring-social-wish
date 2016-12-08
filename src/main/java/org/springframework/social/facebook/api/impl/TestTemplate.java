@@ -15,14 +15,9 @@
  */
 package org.springframework.social.facebook.api.impl;
 
-import org.springframework.social.facebook.api.GraphApi;
+import org.springframework.social.facebook.api.FacebookApi;
 import org.springframework.social.facebook.api.Test;
 import org.springframework.social.facebook.api.TestOperations;
-import org.springframework.social.facebook.api.TestUser;
-import org.springframework.social.facebook.api.TestUserOperations;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.client.RestOperations;
 import org.springframework.web.client.RestTemplate;
 
 public class TestTemplate extends AbstractFacebookOperations implements TestOperations {
@@ -31,7 +26,7 @@ public class TestTemplate extends AbstractFacebookOperations implements TestOper
 	
 	private RestTemplate restTemplate;
 
-	private GraphApi graphApi;
+	private FacebookApi graphApi;
 
 	/**
 	 * @deprecated Construct with a GraphApi, RestTemplate, and appId instead.
@@ -43,7 +38,7 @@ public class TestTemplate extends AbstractFacebookOperations implements TestOper
 		this(null, restTemplate, appId);
 	}
 	
-	public TestTemplate(GraphApi graphApi, RestTemplate restTemplate, String appId) {
+	public TestTemplate(FacebookApi graphApi, RestTemplate restTemplate, String appId) {
 		super(false);
 		this.graphApi = graphApi;
 		this.restTemplate = restTemplate;
@@ -68,11 +63,11 @@ public class TestTemplate extends AbstractFacebookOperations implements TestOper
 		return true;
 	}
 	
-	public void sendConfirmFriends(TestUser testUser1, TestUser testUser2) {
-		RestOperations userRest = new FacebookTemplate(testUser1.getAccessToken()).restOperations();
-		
-		userRest.postForObject(graphApi.getBaseGraphApiUrl() + "{testUserId1}/friends/{testUserId2}", "", String.class, testUser1.getId(), testUser2.getId());
-	}
+//	public void sendConfirmFriends(TestUser testUser1, TestUser testUser2) {
+//		RestOperations userRest = new FacebookTemplate(testUser1.getAccessToken()).restOperations();
+//		
+//		userRest.postForObject(graphApi.getBaseGraphApiUrl() + "{testUserId1}/friends/{testUserId2}", "", String.class, testUser1.getId(), testUser2.getId());
+//	}
 	
 	public void deleteTestUser(String testUserId) {
 		restTemplate.delete(graphApi.getBaseGraphApiUrl() + "{testUserId}", testUserId);

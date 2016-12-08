@@ -1,8 +1,0 @@
-{
-"error": {
-"message": "Unknown path components: /bogus",
-"type": "OAuthException",
-"code": 2500
-}
-}
-

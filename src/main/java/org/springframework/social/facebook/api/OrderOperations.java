@@ -1,13 +1,11 @@
 package org.springframework.social.facebook.api;
 
 import java.io.File;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.social.ApiException;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
+ 
 
 public interface  OrderOperations {
 	/**

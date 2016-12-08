@@ -42,25 +42,15 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.social.NotAuthorizedException;
 import org.springframework.social.UncategorizedApiException;
-import org.springframework.social.facebook.api.AchievementOperations;
-import org.springframework.social.facebook.api.CommentOperations;
-import org.springframework.social.facebook.api.EventOperations;
+ 
 import org.springframework.social.facebook.api.Facebook;
-import org.springframework.social.facebook.api.FeedOperations;
-import org.springframework.social.facebook.api.FriendOperations;
-import org.springframework.social.facebook.api.GroupOperations;
-import org.springframework.social.facebook.api.ImageType;
-import org.springframework.social.facebook.api.LikeOperations;
-import org.springframework.social.facebook.api.MediaOperations;
-import org.springframework.social.facebook.api.OpenGraphOperations;
+ 
 import org.springframework.social.facebook.api.OrderOperations;
-import org.springframework.social.facebook.api.PageOperations;
+
 import org.springframework.social.facebook.api.PagedList;
 import org.springframework.social.facebook.api.PagingParameters;
-import org.springframework.social.facebook.api.SocialContextOperations;
+
 import org.springframework.social.facebook.api.TestOperations;
-import org.springframework.social.facebook.api.TestUserOperations;
-import org.springframework.social.facebook.api.UserOperations;
 import org.springframework.social.facebook.api.impl.json.FacebookModule;
 import org.springframework.social.facebook.api.impl.json.FacebookResolveDataModule;
 import org.springframework.social.oauth2.AbstractOAuth2ApiBinding;
@@ -95,33 +85,7 @@ public class FacebookTemplate extends AbstractOAuth2ApiBinding implements Facebo
 
 	private String appId;
 	
-	private AchievementOperations achievementOperations;
-	
-	private UserOperations userOperations;
-	
-	private FriendOperations friendOperations;
-	
-	private FeedOperations feedOperations;
-	
-	private GroupOperations groupOperations;
-	
-	private CommentOperations commentOperations;
-	
-	private LikeOperations likeOperations;
-	
-	private EventOperations eventOperations;
-	
-	private MediaOperations mediaOperations;
-	
-	private TestOperations testOperations;
-	
-	private PageOperations pageOperations;
-	
-	private OpenGraphOperations openGraphOperations;
-	
-	private SocialContextOperations socialContextOperations;
-	
-	private TestUserOperations testUserOperations;
+ 
 	
 	private OrderOperations orderOperations;
 	
@@ -131,6 +95,10 @@ public class FacebookTemplate extends AbstractOAuth2ApiBinding implements Facebo
 
 	private String apiVersion = "2";
 	private String accessToken;
+
+
+
+	private TestOperations testOperations;
 	
 	
 	private static final class OAuth2TokenParameterRequestInterceptor implements ClientHttpRequestInterceptor {
@@ -241,71 +209,19 @@ public class FacebookTemplate extends AbstractOAuth2ApiBinding implements Facebo
 		this.apiVersion = apiVersion;
 	}
 
-	public AchievementOperations achievementOperations() {
-		return achievementOperations;
-	}
+	 
 	
 	public TestOperations testOperations() {
 		return testOperations;
 	}
 	
 	
-	public UserOperations userOperations() {
-		return userOperations;
-	}
-	
-	public LikeOperations likeOperations() {
-		return likeOperations;
-	}
-
-	public FriendOperations friendOperations() {
-		return friendOperations;
-	}
-	
-	public FeedOperations feedOperations() {
-		return feedOperations;
-	}
-	
-	public GroupOperations groupOperations() {
-		return groupOperations;
-	}
-
-	public CommentOperations commentOperations() {
-		return commentOperations;
-	}
-	
-	public EventOperations eventOperations() {
-		return eventOperations;
-	}
-	
-	public MediaOperations mediaOperations() {
-		return mediaOperations;
-	}
-	
-	public PageOperations pageOperations() {
-		return pageOperations;
-	}
-	
+	 
 	public RestOperations restOperations() {
 		return getRestTemplate();
 	}
 	
-	public OpenGraphOperations openGraphOperations() {
-		return openGraphOperations;
-	}
-	
-	public SocialContextOperations socialContextOperations() {
-		return socialContextOperations;
-	}
-	
-	public String getApplicationNamespace() {
-		return applicationNamespace;
-	}
-	
-	public TestUserOperations testUserOperations() {
-		return testUserOperations;
-	}
-	
+	 
 	public OrderOperations orderOperations() {
 		return orderOperations;
 	}
@@ -430,33 +346,33 @@ public class FacebookTemplate extends AbstractOAuth2ApiBinding implements Facebo
 		return "https://sandbox.merchant.wish.com/api/v"+apiVersion;
 	}
 
-	public byte[] fetchImage(String objectId, String connectionType, ImageType type) {
-		return fetchImage(objectId, connectionType, type, null, null);
-	}
-
-	public byte[] fetchImage(String objectId, String connectionType, Integer width, Integer height) {
-		return fetchImage(objectId, connectionType, null, width, height);
-	}
-
-	private byte[] fetchImage(String objectId, String connectionType, ImageType type, Integer width, Integer height) {
-		URIBuilder uriBuilder = URIBuilder.fromUri(getBaseGraphApiUrl() + objectId + "/" + connectionType);
-		if (type != null) {
-		  uriBuilder.queryParam("type", type.toString().toLowerCase());
-		}
-		if (width != null) {
-			uriBuilder.queryParam("width", width.toString());
-		}
-		if (height != null) {
-			uriBuilder.queryParam("height", height.toString());
-		}
-		URI uri = uriBuilder.build();
-		ResponseEntity<byte[]> response = getRestTemplate().getForEntity(uri, byte[].class);
-		if(response.getStatusCode() == HttpStatus.FOUND) {
-			throw new UnsupportedOperationException("Attempt to fetch image resulted in a redirect which could not be followed. Add Apache HttpComponents HttpClient to the classpath " +
-					"to be able to follow redirects.");
-		}
-		return response.getBody();
-	}
+//	public byte[] fetchImage(String objectId, String connectionType, ImageType type) {
+//		return fetchImage(objectId, connectionType, type, null, null);
+//	}
+//
+//	public byte[] fetchImage(String objectId, String connectionType, Integer width, Integer height) {
+//		return fetchImage(objectId, connectionType, null, width, height);
+//	}
+//
+//	private byte[] fetchImage(String objectId, String connectionType, ImageType type, Integer width, Integer height) {
+//		URIBuilder uriBuilder = URIBuilder.fromUri(getBaseGraphApiUrl() + objectId + "/" + connectionType);
+//		if (type != null) {
+//		  uriBuilder.queryParam("type", type.toString().toLowerCase());
+//		}
+//		if (width != null) {
+//			uriBuilder.queryParam("width", width.toString());
+//		}
+//		if (height != null) {
+//			uriBuilder.queryParam("height", height.toString());
+//		}
+//		URI uri = uriBuilder.build();
+//		ResponseEntity<byte[]> response = getRestTemplate().getForEntity(uri, byte[].class);
+//		if(response.getStatusCode() == HttpStatus.FOUND) {
+//			throw new UnsupportedOperationException("Attempt to fetch image resulted in a redirect which could not be followed. Add Apache HttpComponents HttpClient to the classpath " +
+//					"to be able to follow redirects.");
+//		}
+//		return response.getBody();
+//	}
 	
 	@SuppressWarnings("unchecked")
 	public String publish(String objectId, String connectionType, MultiValueMap<String, Object> data) {
@@ -529,19 +445,8 @@ public class FacebookTemplate extends AbstractOAuth2ApiBinding implements Facebo
 	}
 		
 	private void initSubApis() {
-		achievementOperations = new AchievementTemplate(this);
-		openGraphOperations = new OpenGraphTemplate(this);
-		userOperations = new UserTemplate(this, getRestTemplate());
-		friendOperations = new FriendTemplate(this, getRestTemplate());
-		feedOperations = new FeedTemplate(this, getRestTemplate(), objectMapper);
-		commentOperations = new CommentTemplate(this);
-		likeOperations = new LikeTemplate(this);
-		eventOperations = new EventTemplate(this);
-		mediaOperations = new MediaTemplate(this, getRestTemplate());
-		groupOperations = new GroupTemplate(this);
-		pageOperations = new PageTemplate(this);
-		testUserOperations = new TestUserTemplate(this, getRestTemplate(), appId);
-		socialContextOperations = new SocialContextTemplate(this, getRestTemplate());
+	 
+		testOperations = new TestTemplate(this, getRestTemplate(), appId);
 		orderOperations = new OrderTemplate(this);
 	}
 	
@@ -565,6 +470,9 @@ public class FacebookTemplate extends AbstractOAuth2ApiBinding implements Facebo
 		}
 		return builder.toString();
 	}
+
+ 
+ 
 
 
 }

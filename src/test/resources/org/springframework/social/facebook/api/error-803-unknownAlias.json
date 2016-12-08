@@ -1,7 +1,0 @@
-{
-"error": {
-"message": "(#803) Cannot query users by their username (sfdsafdasf)",
-"type": "OAuthException",
-"code": 803
-}
-}

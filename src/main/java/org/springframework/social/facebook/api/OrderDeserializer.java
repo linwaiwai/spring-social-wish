@@ -7,11 +7,9 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.deser.ResolvableDeserializer;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
-import com.fasterxml.jackson.databind.node.JsonNodeType;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
+ 
 
 import org.springframework.social.facebook.api.impl.json.FacebookModule;
 
@@ -69,7 +67,8 @@ public class OrderDeserializer extends StdDeserializer<Order> implements Resolva
     /**
      * {@inheritDoc}
      */
-    @Override
+    @SuppressWarnings("deprecation")
+	@Override
     public Order deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JsonProcessingException {
         JsonNode node = jsonParser.getCodec().readTree(jsonParser);
 

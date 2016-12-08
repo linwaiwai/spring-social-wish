@@ -33,35 +33,21 @@ public class User extends FacebookObject implements Serializable {
 
 	private String about;
 	
-	private Location address;
-	
-	private AgeRange ageRange = AgeRange.UNKNOWN;
+	 
 
 	private String bio;
 	
 	private String birthday;
-	
-	private CoverPhoto cover;
-	
-	private Currency currency;
-	
-	private List<Device> devices;
-	
-	private List<EducationExperience> education;
+	 
 	
 	private String email;
 	
-	private List<Reference> favoriteAthletes;
-
-	private List<Reference> favoriteTeams;
+	 
 	
 	private String firstName;
 	
 	private String gender;
-
-	private Reference hometown;
-	
-	private List<Reference> inspirationalPeople;
+ 
 	
 	private boolean installed;
 	
@@ -70,16 +56,14 @@ public class User extends FacebookObject implements Serializable {
 	private List<String> interestedIn;
 
 	private boolean isIdentityVerified;
-	
-	private List<Reference> languages;
-	
+ 
 	private String lastName;
 
 	private String link;
 
 	private Locale locale;
 
-	private Reference location;
+ 
 	
 	private String middleName;
 	
@@ -89,7 +73,7 @@ public class User extends FacebookObject implements Serializable {
 	
 	private String nameFormat;
 	
-	private PaymentPricePoints paymentPricePoints;
+ 
 
 	private String political;
 
@@ -99,11 +83,7 @@ public class User extends FacebookObject implements Serializable {
 
 	private String religion;
 
-	private SecuritySettings securitySettings;
-	
-	private Reference significantOther;
-	
-	private List<Experience> sports;
+ 
 	
 	private int testGroup;
 	
@@ -119,9 +99,7 @@ public class User extends FacebookObject implements Serializable {
 	
 	private String website;
 
-	private List<WorkEntry> work;
-	
-	private VideoUploadLimits videoUploadLimits;
+ 
 	
 	User() {}
 	
@@ -142,15 +120,7 @@ public class User extends FacebookObject implements Serializable {
 		return id;
 	}
 	
-	/**
-	 * The user's address
-	 * @return the user's address.
-	 * @deprecated Facebook no longer supports the address field in user profiles. Will return null for newer versions of the Graph API.
-	 */
-	@Deprecated
-	public Location getAddress() {
-		return address;
-	}
+ 
 	
 	/**
 	 * The user's full name
@@ -305,59 +275,13 @@ public class User extends FacebookObject implements Serializable {
 		return birthday;
 	}
 	
-	/**
-	 * The user's location.
-	 * Available only with "user_location" permission.
-	 * @return a {@link Reference} to the user's location, if available
-	 */
-	public Reference getLocation() {
-		return location;
-	}
-	
-	/**
-	 * The user's hometown.
-	 * Available only with "user_hometown" permission.
-	 * @return a {@link Reference} to the user's hometown, if available
-	 */
-	public Reference getHometown() {
-		return hometown;
-	}
-	
-	/**
-	 * A list of references to people the user is inspired by.
-	 * @return a list of {@link Reference} to people the user is inspired by, if available.
-	 */
-	public List<Reference> getInspirationalPeople() {
-		return inspirationalPeople;
-	}
+	 
 	
 	public boolean isIdentityVerified() {
 		return isIdentityVerified;
 	}
 	
-	/**
-	 * A list of references to languages the user claims to know.
-	 * @return a list of {@link Reference} to languages the user knows, if available.
-	 */
-	public List<Reference> getLanguages() {
-		return languages;
-	}
-	
-	/**
-	 * A list of references to the user's favorite sports teams.
-	 * @return a list of {@link Reference}s to sports teams the user is a fan of, if available.
-	 */
-	public List<Reference> getFavoriteTeams() {
-		return favoriteTeams;
-	}
-	
-	/**
-	 * A list of references to the user's favorite athletes.
-	 * @return a list of {@link Reference}s to athletes the user is a fan of, if available.
-	 */
-	public List<Reference> getFavoriteAtheletes() {
-		return favoriteAthletes;
-	}
+ 
 
 	/**
 	 * The user's religion. 
@@ -367,14 +291,7 @@ public class User extends FacebookObject implements Serializable {
 	public String getReligion() {
 		return religion;
 	}
-	
-	/**
-	 * @return a {@link PaymentPricePoints} object
-	 */
-	public PaymentPricePoints getPaymentPricePoints() {
-		return paymentPricePoints;
-	}
-
+	 
 	/**
 	 * The user's political affiliation. 
 	 * Available only with "user_religion_politics" permission.
@@ -402,18 +319,7 @@ public class User extends FacebookObject implements Serializable {
 		return relationshipStatus;
 	}
 
-	public SecuritySettings getSecuritySettings() {
-		return securitySettings;
-	}
-	
-	/**
-	 * The user's significant other. 
-	 * Available only for certain relationship statuses and with "user_relationship_details" permission.
-	 * @return a {@link Reference} to the user's significant other, if available.
-	 */
-	public Reference getSignificantOther() {
-		return significantOther;
-	}
+  
 	
 	public int getTestGroup() {
 		return testGroup;
@@ -423,32 +329,7 @@ public class User extends FacebookObject implements Serializable {
 		return viewerCanSendGift;
 	}
 	
-	/**
-	 * The user's work history.
-	 * Available only with "user_work_history" permission.
-	 * @return a list of {@link WorkEntry} items, one for each entry in the user's work history.
-	 */
-	public List<WorkEntry> getWork() {
-		return work;
-	}
-	
-	/**
-	 * The user's education history.
-	 * Available only with "user_education_history" permission.
-	 * @return a list of {@link EducationExperience} items, one for each entry in the user's education history.
-	 */
-	public List<EducationExperience> getEducation() {
-		return education;
-	}
-	
-	/**
-	 * The user's age range.
-	 * @return an {@link AgeRange} for the user. Will be {@link AgeRange#UNKNOWN} if the age_range isn't available or if the range given does match the known ranges.
-	 */
-	public AgeRange getAgeRange() {
-		return ageRange;
-	}
-	
+	   
 	/**
 	 * @return true if the user has the calling application installed
 	 */
@@ -459,40 +340,6 @@ public class User extends FacebookObject implements Serializable {
 	public String getInstallType() {
 		return installType;
 	}
-	
-	/**
-	 * @return the user's cover photo
-	 */
-	public CoverPhoto getCover() {
-		return cover;
-	}
-	
-	/**
-	 * @return a list of devices that user has accessed Facebook with.
-	 */
-	public List<Device> getDevices() {
-		return devices;
-	}
-	
-	/**
-	 * @return the user's currency information
-	 */
-	public Currency getCurrency() {
-		return currency;
-	}
-	
-	/**
-	 * @return limits on the size and time length of videos the user can upload.
-	 */
-	public VideoUploadLimits getVideoUploadLimits() {
-		return videoUploadLimits;
-	}
-	
-	/**
-	 * @return list of sports experiences the user has participated in.
-	 */
-	public List<Experience> getSports() {
-		return sports;
-	}
+   
 	
 }

@@ -33,9 +33,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.social.facebook.api.Comment;
-import org.springframework.social.facebook.api.CommentOperations;
-import org.springframework.social.facebook.api.GraphApi;
+ 
+import org.springframework.social.facebook.api.FacebookApi;
 import org.springframework.social.facebook.api.Order;
 import org.springframework.social.facebook.api.PagedList;
 import org.springframework.social.facebook.api.PagingParameters;
@@ -55,8 +54,8 @@ import org.dozer.loader.api.TypeMappingOptions;
 
 class OrderTemplate implements OrderOperations {
 
-	private final GraphApi graphApi;
-	public OrderTemplate(GraphApi graphApi) {
+	private final FacebookApi graphApi;
+	public OrderTemplate(FacebookApi graphApi) {
 		this.graphApi = graphApi;
 	}
 
