@@ -1,0 +1,10 @@
+{"code": 0,
+ "data": {"Variant": {"enabled": "True",
+                      "id": "529e6c2cf94aaa0cfe02846f",
+                      "inventory": "10",
+                      "price": "10",
+                      "shipping": "3",
+                      "size": "12",
+                      "sku": "red-shoe-12"}},
+ "msg" : ""
+}

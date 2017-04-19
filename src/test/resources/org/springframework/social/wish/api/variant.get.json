@@ -1,0 +1,10 @@
+{"code": 0,
+ "data": {"Variant": {"enabled": "True",
+                      "id": "51e0a2c61111a236cfffe3a2",
+                      "product_id" : "51e0a2c61111axxxcfffeyyy",
+                      "inventory": "10100",
+                      "msrp": "21100.0",
+                      "price": "100.0",
+                      "shipping": "10.0",
+                      "sku": "red-shoe-8"}},
+ "message": ""}
