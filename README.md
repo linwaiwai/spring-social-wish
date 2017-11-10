@@ -4,7 +4,7 @@
 
 * 捐赠热线:
 
-  * 微信支付:
+微信支付:
   
     <img src="https://raw.githubusercontent.com/linwaiwai/openapplus/master/wechat.jpeg" alt="Donate with Wechat Pay" title="Donate with Wechat Pay" width="320"/>
     
